@@ -3,6 +3,7 @@
 #include "../res/dungeon_map.h"
 #include "../res/dungeon_tiles.h"
 
+#include "sprite-blob.h"
 
 void init_gfx(void) {
     // Load Background tiles and then map
@@ -18,10 +19,16 @@ void main(void)
 {
 	init_gfx();
 
+    SPRITES_8x8;
+    set_sprite_data(0, 1, blob);
+    set_sprite_tile(0, 0);
+    move_sprite(0, 80, 100);
+    SHOW_SPRITES;
+    int x = 0;
     // Loop forever
     while(1) {
 
-
+        
 		// Game main loop processing goes here
 
 

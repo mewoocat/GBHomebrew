@@ -10,81 +10,107 @@
                                      10 ;--------------------------------------------------------
                                      11 	.globl _main
                                      12 	.globl _init_gfx
-                                     13 	.globl _set_bkg_tiles
-                                     14 	.globl _set_bkg_data
-                                     15 	.globl _vsync
-                                     16 ;--------------------------------------------------------
-                                     17 ; special function registers
-                                     18 ;--------------------------------------------------------
+                                     13 	.globl _set_sprite_data
+                                     14 	.globl _set_bkg_tiles
+                                     15 	.globl _set_bkg_data
+                                     16 	.globl _vsync
+                                     17 ;--------------------------------------------------------
+                                     18 ; special function registers
                                      19 ;--------------------------------------------------------
-                                     20 ; ram data
-                                     21 ;--------------------------------------------------------
-                                     22 	.area _DATA
-                                     23 ;--------------------------------------------------------
-                                     24 ; ram data
-                                     25 ;--------------------------------------------------------
-                                     26 	.area _INITIALIZED
-                                     27 ;--------------------------------------------------------
-                                     28 ; absolute external ram data
-                                     29 ;--------------------------------------------------------
-                                     30 	.area _DABS (ABS)
-                                     31 ;--------------------------------------------------------
-                                     32 ; global & static initialisations
-                                     33 ;--------------------------------------------------------
-                                     34 	.area _HOME
-                                     35 	.area _GSINIT
-                                     36 	.area _GSFINAL
-                                     37 	.area _GSINIT
-                                     38 ;--------------------------------------------------------
-                                     39 ; Home
-                                     40 ;--------------------------------------------------------
-                                     41 	.area _HOME
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area _DATA
+                                     24 ;--------------------------------------------------------
+                                     25 ; ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area _INITIALIZED
+                                     28 ;--------------------------------------------------------
+                                     29 ; absolute external ram data
+                                     30 ;--------------------------------------------------------
+                                     31 	.area _DABS (ABS)
+                                     32 ;--------------------------------------------------------
+                                     33 ; global & static initialisations
+                                     34 ;--------------------------------------------------------
+                                     35 	.area _HOME
+                                     36 	.area _GSINIT
+                                     37 	.area _GSFINAL
+                                     38 	.area _GSINIT
+                                     39 ;--------------------------------------------------------
+                                     40 ; Home
+                                     41 ;--------------------------------------------------------
                                      42 	.area _HOME
-                                     43 ;--------------------------------------------------------
-                                     44 ; code
-                                     45 ;--------------------------------------------------------
-                                     46 	.area _CODE
-                                     47 ;src/main.c:7: void init_gfx(void) {
-                                     48 ;	---------------------------------
-                                     49 ; Function init_gfx
-                                     50 ; ---------------------------------
-    00000000                         51 _init_gfx::
-                                     52 ;src/main.c:9: set_bkg_data(0, 79u, dungeon_tiles);
-    00000000 11r00r00         [12]   53 	ld	de, #_dungeon_tiles
-    00000003 D5               [16]   54 	push	de
-    00000004 21 00 4F         [12]   55 	ld	hl, #0x4f00
-    00000007 E5               [16]   56 	push	hl
-    00000008 CDr00r00         [24]   57 	call	_set_bkg_data
-    0000000B E8 04            [16]   58 	add	sp, #4
-                                     59 ;src/main.c:10: set_bkg_tiles(0, 0, 32u, 32u, dungeon_mapPLN0);
-    0000000D 11r00r00         [12]   60 	ld	de, #_dungeon_mapPLN0
-    00000010 D5               [16]   61 	push	de
-    00000011 21 20 20         [12]   62 	ld	hl, #0x2020
-    00000014 E5               [16]   63 	push	hl
-    00000015 AF               [ 4]   64 	xor	a, a
-    00000016 0F               [ 4]   65 	rrca
-    00000017 F5               [16]   66 	push	af
-    00000018 CDr00r00         [24]   67 	call	_set_bkg_tiles
-    0000001B E8 06            [16]   68 	add	sp, #6
-                                     69 ;src/main.c:13: SHOW_BKG;
-    0000001D F0r00            [12]   70 	ldh	a, (_LCDC_REG + 0)
-    0000001F F6 01            [ 8]   71 	or	a, #0x01
-    00000021 E0r00            [12]   72 	ldh	(_LCDC_REG + 0), a
-                                     73 ;src/main.c:14: }
-    00000023 C9               [16]   74 	ret
-                                     75 ;src/main.c:17: void main(void)
-                                     76 ;	---------------------------------
-                                     77 ; Function main
-                                     78 ; ---------------------------------
-    00000024                         79 _main::
-                                     80 ;src/main.c:19: init_gfx();
-    00000024 CDr00r00         [24]   81 	call	_init_gfx
-                                     82 ;src/main.c:22: while(1) {
-    00000027                         83 00102$:
-                                     84 ;src/main.c:29: vsync();
-    00000027 CDr00r00         [24]   85 	call	_vsync
-                                     86 ;src/main.c:31: }
-    0000002A 18 FB            [12]   87 	jr	00102$
-                                     88 	.area _CODE
-                                     89 	.area _INITIALIZER
-                                     90 	.area _CABS (ABS)
+                                     43 	.area _HOME
+                                     44 ;--------------------------------------------------------
+                                     45 ; code
+                                     46 ;--------------------------------------------------------
+                                     47 	.area _CODE
+                                     48 ;src/main.c:8: void init_gfx(void) {
+                                     49 ;	---------------------------------
+                                     50 ; Function init_gfx
+                                     51 ; ---------------------------------
+    00000000                         52 _init_gfx::
+                                     53 ;src/main.c:10: set_bkg_data(0, 79u, dungeon_tiles);
+    00000000 11r00r00         [12]   54 	ld	de, #_dungeon_tiles
+    00000003 D5               [16]   55 	push	de
+    00000004 21 00 4F         [12]   56 	ld	hl, #0x4f00
+    00000007 E5               [16]   57 	push	hl
+    00000008 CDr00r00         [24]   58 	call	_set_bkg_data
+    0000000B E8 04            [16]   59 	add	sp, #4
+                                     60 ;src/main.c:11: set_bkg_tiles(0, 0, 32u, 32u, dungeon_mapPLN0);
+    0000000D 11r00r00         [12]   61 	ld	de, #_dungeon_mapPLN0
+    00000010 D5               [16]   62 	push	de
+    00000011 21 20 20         [12]   63 	ld	hl, #0x2020
+    00000014 E5               [16]   64 	push	hl
+    00000015 AF               [ 4]   65 	xor	a, a
+    00000016 0F               [ 4]   66 	rrca
+    00000017 F5               [16]   67 	push	af
+    00000018 CDr00r00         [24]   68 	call	_set_bkg_tiles
+    0000001B E8 06            [16]   69 	add	sp, #6
+                                     70 ;src/main.c:14: SHOW_BKG;
+    0000001D F0r00            [12]   71 	ldh	a, (_LCDC_REG + 0)
+    0000001F F6 01            [ 8]   72 	or	a, #0x01
+    00000021 E0r00            [12]   73 	ldh	(_LCDC_REG + 0), a
+                                     74 ;src/main.c:15: }
+    00000023 C9               [16]   75 	ret
+                                     76 ;src/main.c:18: void main(void)
+                                     77 ;	---------------------------------
+                                     78 ; Function main
+                                     79 ; ---------------------------------
+    00000024                         80 _main::
+                                     81 ;src/main.c:20: init_gfx();
+    00000024 CDr00r00         [24]   82 	call	_init_gfx
+                                     83 ;src/main.c:22: SPRITES_8x8;
+    00000027 F0r00            [12]   84 	ldh	a, (_LCDC_REG + 0)
+    00000029 E6 FB            [ 8]   85 	and	a, #0xfb
+    0000002B E0r00            [12]   86 	ldh	(_LCDC_REG + 0), a
+                                     87 ;src/main.c:23: set_sprite_data(0, 1, blob);
+    0000002D 11r00r00         [12]   88 	ld	de, #_blob
+    00000030 D5               [16]   89 	push	de
+    00000031 AF               [ 4]   90 	xor	a, a
+    00000032 3C               [ 4]   91 	inc	a
+    00000033 F5               [16]   92 	push	af
+    00000034 CDr00r00         [24]   93 	call	_set_sprite_data
+    00000037 E8 04            [16]   94 	add	sp, #4
+                                     95 ;../Tools/gbdk/include/gb/gb.h:1875: shadow_OAM[nb].tile=tile;
+    00000039 21r02r00         [12]   96 	ld	hl, #(_shadow_OAM + 2)
+    0000003C 36 00            [12]   97 	ld	(hl), #0x00
+                                     98 ;../Tools/gbdk/include/gb/gb.h:1961: OAM_item_t * itm = &shadow_OAM[nb];
+    0000003E 21r00r00         [12]   99 	ld	hl, #_shadow_OAM
+                                    100 ;../Tools/gbdk/include/gb/gb.h:1962: itm->y=y, itm->x=x;
+    00000041 3E 64            [ 8]  101 	ld	a, #0x64
+    00000043 22               [ 8]  102 	ld	(hl+), a
+    00000044 36 50            [12]  103 	ld	(hl), #0x50
+                                    104 ;src/main.c:26: SHOW_SPRITES;
+    00000046 F0r00            [12]  105 	ldh	a, (_LCDC_REG + 0)
+    00000048 F6 02            [ 8]  106 	or	a, #0x02
+    0000004A E0r00            [12]  107 	ldh	(_LCDC_REG + 0), a
+                                    108 ;src/main.c:29: while(1) {
+    0000004C                        109 00102$:
+                                    110 ;src/main.c:36: vsync();
+    0000004C CDr00r00         [24]  111 	call	_vsync
+                                    112 ;src/main.c:38: }
+    0000004F 18 FB            [12]  113 	jr	00102$
+                                    114 	.area _CODE
+                                    115 	.area _INITIALIZER
+                                    116 	.area _CABS (ABS)
