@@ -78,6 +78,8 @@ _init_gfx::
 ; Function main
 ; ---------------------------------
 _main::
+	dec	sp
+	dec	sp
 ;src/main.c:20: init_gfx();
 	call	_init_gfx
 ;src/main.c:22: SPRITES_8x8;
@@ -105,12 +107,60 @@ _main::
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x02
 	ldh	(_LCDC_REG + 0), a
-;src/main.c:29: while(1) {
+;src/main.c:27: int x = 0;
+	xor	a, a
+	ldhl	sp,	#0
+	ld	(hl+), a
+	ld	(hl), a
+;src/main.c:28: int y = 0;
+	ld	bc, #0x0000
+;src/main.c:30: while(1) {
+00106$:
+;src/main.c:33: move_sprite(0, x, y);
+	ld	d, c
+	ldhl	sp,	#0
+	ld	e, (hl)
+;../Tools/gbdk/include/gb/gb.h:1961: OAM_item_t * itm = &shadow_OAM[nb];
+	ld	hl, #_shadow_OAM
+;../Tools/gbdk/include/gb/gb.h:1962: itm->y=y, itm->x=x;
+	ld	a, d
+	ld	(hl+), a
+	ld	(hl), e
+;src/main.c:36: if (x == 168){
+	ldhl	sp,	#0
+	ld	a, (hl+)
+	sub	a, #0xa8
+;src/main.c:37: x = 0;
+	or	a,(hl)
+	jr	NZ, 00102$
+	ldhl	sp,	#0
+	ld	(hl+), a
+	ld	(hl), a
+;src/main.c:38: y++;
+	inc	bc
 00102$:
-;src/main.c:36: vsync();
+;src/main.c:40: if (y == 160){
+	ld	a, c
+	sub	a, #0xa0
+	or	a, b
+	jr	NZ, 00104$
+;src/main.c:41: y=0;
+	ld	bc, #0x0000
+00104$:
+;src/main.c:43: x++;
+	ldhl	sp,	#0
+	inc	(hl)
+	jr	NZ, 00138$
+	inc	hl
+	inc	(hl)
+00138$:
+;src/main.c:47: vsync();
 	call	_vsync
-;src/main.c:38: }
-	jr	00102$
+	jr	00106$
+;src/main.c:49: }
+	inc	sp
+	inc	sp
+	ret
 	.area _CODE
 	.area _INITIALIZER
 	.area _CABS (ABS)

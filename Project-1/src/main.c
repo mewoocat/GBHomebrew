@@ -25,11 +25,22 @@ void main(void)
     move_sprite(0, 80, 100);
     SHOW_SPRITES;
     int x = 0;
+    int y = 0;
     // Loop forever
     while(1) {
 
+
+        move_sprite(0, x, y);
         
 		// Game main loop processing goes here
+        if (x == 168){
+            x = 0;
+            y++;
+        }
+        if (y == 160){
+            y=0;
+        }
+        x++;
 
 
 		// Done processing, yield CPU and wait for start of next frame
