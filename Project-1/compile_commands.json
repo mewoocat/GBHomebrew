@@ -1,0 +1,22 @@
+[
+ {
+  "directory": "/home/eXia/Projects/GBHomebrew/Project-1",
+  "command": "../Tools/gbdk/bin/lcc -debug -v -I../Tools/gbdk//include/gb/ -c -o obj/main.o src/main.c",
+  "file": "src/main.c"
+ },
+ {
+  "directory": "/home/eXia/Projects/GBHomebrew/Project-1",
+  "command": "../Tools/gbdk/bin/lcc -debug -v -I../Tools/gbdk//include/gb/ -c -o obj/sprite-blob.o src/sprite-blob.c",
+  "file": "src/sprite-blob.c"
+ },
+ {
+  "directory": "/home/eXia/Projects/GBHomebrew/Project-1",
+  "command": "../Tools/gbdk/bin/lcc -debug -v -I../Tools/gbdk//include/gb/ -c -o obj/dungeon_map.o res/dungeon_map.c",
+  "file": "res/dungeon_map.c"
+ },
+ {
+  "directory": "/home/eXia/Projects/GBHomebrew/Project-1",
+  "command": "../Tools/gbdk/bin/lcc -debug -v -I../Tools/gbdk//include/gb/ -c -o obj/dungeon_tiles.o res/dungeon_tiles.c",
+  "file": "res/dungeon_tiles.c"
+ }
+]
