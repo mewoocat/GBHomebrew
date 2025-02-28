@@ -13,6 +13,9 @@ LCC = $(GBDK_HOME)bin/lcc
 
 GBDK_DEBUG = ON
 ifdef GBDK_DEBUG
+	# Adding the lib/gb and include dir here so that the compile_commands.json for clangd can find the headers
+	# I found the headers locations that sdcc automatically uses by running make with the verbose option on 
+	# lcc which showed the args to the sdcc call
 	LCCFLAGS += -debug -v -I$(GBDK_HOME)/lib/gb -I$(GBDK_HOME)/include
 endif
 
