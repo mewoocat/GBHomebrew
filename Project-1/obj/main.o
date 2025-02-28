@@ -1,5 +1,6 @@
+;!FILE obj/main.asm
 XL4
-H 9 areas C global symbols
+H 9 areas 72 global symbols
 M main
 O -msm83
 S _dungeon_mapPLN0 Ref00000000
@@ -13,8 +14,110 @@ S _set_bkg_data Ref00000000
 S _blob Ref00000000
 S _set_bkg_tiles Ref00000000
 A _CODE size 85 flags 0 addr 0
+S A$main$200 Def0000007B
+S A$main$110 Def00000029
+S A$main$101 Def00000024
+S A$main$201 Def0000007C
+S A$main$120 Def00000035
+S A$main$111 Def0000002B
+S A$main$102 Def00000025
+S A$main$211 Def00000082
+S A$main$130 Def00000045
+S A$main$121 Def00000036
+S A$main$112 Def0000002D
+S A$main$212 Def00000083
+S A$main$131 Def00000046
+S A$main$122 Def00000039
+S C$main.c$40$2_1$130 Def0000006D
+S XG$init_gfx$0$0 Def00000023
+S C$main.c$10$1_0$126 Def00000000
+S A$main$141 Def0000004E
+S C$main.c$11$1_0$126 Def0000000D
 S _main Def00000024
+S A$main$160 Def0000005D
+S A$main$142 Def0000004F
+S A$main$124 Def0000003B
+S A$main$106 Def00000026
+S A$main$206 Def0000007D
+S A$main$161 Def0000005E
+S A$main$143 Def00000051
+S A$main$125 Def0000003E
+S A$main$116 Def0000002F
+S C$main.c$43$2_1$130 Def00000076
+S C$main.c$20$1_0$128 Def00000026
+S A$main$207 Def00000080
+S A$main$180 Def0000006C
+S A$main$162 Def0000005F
+S A$main$144 Def00000052
+S A$main$135 Def00000048
+S A$main$117 Def00000032
+S C$main.c$41$3_1$132 Def00000073
+S C$main.c$14$1_0$126 Def0000001D
+S A$main$217 Def00000084
+S A$main$172 Def00000065
+S A$main$154 Def00000056
+S A$main$136 Def0000004A
+S A$main$127 Def00000040
+S A$main$118 Def00000033
+S C$main.c$36$2_1$130 Def00000060
+S C$main.c$22$1_0$128 Def00000029
+S C$main.c$15$1_0$126 Def00000023
+S A$main$173 Def00000066
+S A$main$155 Def00000057
+S A$main$137 Def0000004C
+S A$main$119 Def00000034
+S C$main.c$30$1_1$129 Def00000056
+S C$main.c$23$1_0$128 Def0000002F
+S A$main$192 Def00000073
+S A$main$174 Def00000068
+S A$main$156 Def00000059
+S A$main$129 Def00000043
+S C$main.c$47$2_1$130 Def0000007D
+S A$main$175 Def0000006A
+S A$main$166 Def00000060
+S A$main$148 Def00000053
+S C$main.c$37$3_1$131 Def00000065
+S A$main$185 Def0000006D
+S A$main$176 Def0000006B
+S A$main$167 Def00000062
+S A$main$158 Def0000005A
+S C$main.c$38$3_1$131 Def0000006C
+S C$main.c$26$1_0$128 Def00000048
+S A$main$186 Def0000006E
+S A$main$168 Def00000063
+S C$main.c$18$1_0$128 Def00000024
+S A$main$187 Def00000070
+S A$main$197 Def00000076
+S A$main$188 Def00000071
+S C$main.c$27$2_0$129 Def0000004E
+S A$main$198 Def00000078
+S XG$main$0$0 Def00000084
+S C$main.c$28$2_0$129 Def00000053
+S A$main$199 Def00000079
+S C$main.c$49$1_1$128 Def00000084
+S A$main$60 Def00000000
+S A$main$70 Def00000010
+S A$main$61 Def00000003
+S A$main$71 Def00000011
+S A$main$62 Def00000004
+S A$main$81 Def0000001D
+S A$main$72 Def00000014
+S A$main$63 Def00000007
+S A$main$91 Def00000023
+S A$main$82 Def0000001F
+S A$main$73 Def00000015
+S A$main$64 Def00000008
+S A$main$83 Def00000021
+S A$main$74 Def00000016
+S A$main$65 Def0000000B
+S C$main.c$8$0_0$126 Def00000000
+S A$main$75 Def00000017
+S A$main$76 Def00000018
+S A$main$77 Def0000001B
+S A$main$69 Def0000000D
+S G$init_gfx$0$0 Def00000000
 S _init_gfx Def00000000
+S G$main$0$0 Def00000024
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0

@@ -13,7 +13,7 @@ LCC = $(GBDK_HOME)bin/lcc
 
 GBDK_DEBUG = ON
 ifdef GBDK_DEBUG
-	LCCFLAGS += -debug -v -I$(GBDK_HOME)/include/gb/
+	LCCFLAGS += -debug -v -I$(GBDK_HOME)/lib/gb -I$(GBDK_HOME)/include
 endif
 
 

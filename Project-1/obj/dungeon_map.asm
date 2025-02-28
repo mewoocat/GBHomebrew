@@ -41,6 +41,7 @@
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
+G$dungeon_mapPLN0$0_0$0 == .
 _dungeon_mapPLN0:
 	.db #0x0a	; 10
 	.db #0x0b	; 11

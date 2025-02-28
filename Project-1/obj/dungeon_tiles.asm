@@ -41,6 +41,7 @@
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
+G$dungeon_tiles$0_0$0 == .
 _dungeon_tiles:
 	.db #0x00	; 0
 	.db #0xff	; 255
