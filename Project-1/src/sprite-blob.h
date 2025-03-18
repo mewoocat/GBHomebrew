@@ -30,6 +30,8 @@
 /* Start of tile array. */
 extern const unsigned char blob[];
 
+extern const unsigned char bg1[];
+
 #endif
 
 /* End of SPRITE-BLOB.H */

@@ -1,10 +1,12 @@
 XL4
-H 9 areas 3 global symbols
+H 9 areas 5 global symbols
 M sprite_blob
 O -msm83
 S .__.ABS. Def00000000
-A _CODE size 10 flags 0 addr 0
+A _CODE size 20 flags 0 addr 0
 S G$blob$0_0$0 Def00000000
+S _bg1 Def00000010
+S G$bg1$0_0$0 Def00000010
 S _blob Def00000000
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
@@ -19,4 +21,10 @@ R 00 00 00 00
 T 00 00 00 00 18 18 3C 3C 7E 7E FF FF FF FF 7E 7E
 R 00 00 00 00
 T 0C 00 00 00 3C 3C 18 18
+R 00 00 00 00
+T 10 00 00 00
+R 00 00 00 00
+T 10 00 00 00 18 18 00 00 00 00 00 00 18 18 00 00
+R 00 00 00 00
+T 1C 00 00 00 00 00 00 00
 R 00 00 00 00
